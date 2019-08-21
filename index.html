@@ -7,61 +7,47 @@
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
     <style>
-        @keyframes color {
+@keyframes color {
+    
+    0%   {background : rgba(128, 0, 128, 0.6);
+   }
+    10%   {background :  rgba(156, 39, 176, 0.5);
+   }
+  25%  {background: rgba(103, 58, 183, 0.72);
+}
+  50%  {background: rgba(0, 0, 255, 0.57);
+}
+  100% {background: rgba(128, 0, 128, 0.6);
+        
+    }
 
-            0% {
-                background: rgba(128, 0, 128, 0.6);
-            }
+}
+ @-webkit-keyframes color {
+    
+    0%   {background : rgba(128, 0, 128, 0.6);
+   }
+    10%   {background :  rgba(156, 39, 176, 0.5);
+   }
+  25%  {background: rgba(103, 58, 183, 0.72);
+}
+  50%  {background: rgba(0, 0, 255, 0.57);
+}
+  100% {background: rgba(128, 0, 128, 0.6);
+        
+    }
+}
 
-            10% {
-                background: rgba(156, 39, 176, 0.5);
-            }
+.bg{
 
-            25% {
-                background: rgba(103, 58, 183, 0.72);
-            }
+ -webkit-animation-name: color;
+    animation-name: color;
+    -webkit-animation-duration: 20s;
+    animation-duration: 20s;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
 
-            50% {
-                background: rgba(0, 0, 255, 0.57);
-            }
-
-            100% {
-                background: rgba(128, 0, 128, 0.6);
-            }
-        }
-
-        @-webkit-keyframes color {
-
-            0% {
-                background: rgba(128, 0, 128, 0.6);
-            }
-
-            10% {
-                background: rgba(156, 39, 176, 0.5);
-            }
-
-            25% {
-                background: rgba(103, 58, 183, 0.72);
-            }
-
-            50% {
-                background: rgba(0, 0, 255, 0.57);
-            }
-
-            100% {
-                background: rgba(128, 0, 128, 0.6);
-            }
-        }
-
-        .bg {
-            -webkit-animation-name: color;
-            animation-name: color;
-            -webkit-animation-duration: 20s;
-            animation-duration: 20s;
-            -webkit-animation-iteration-count: infinite;
-            animation-iteration-count: infinite;
-        }
-
+}
+  
 
         canvas {
             border: 1px solid #d3d3d3;
@@ -84,7 +70,7 @@
         }
 
         @media only screen and (max-width : 768px) {
-            canvas {
+            canvas{
                 width: 100%;
             }
         }
@@ -244,13 +230,9 @@
         function reload() {
             location.reload();
         }
-
-        $('.btn-warning').mousedown(function (e) {
-            e.preventDefault();
-            beginAdjust(10);
-        })
     </script>
     <br>
+    <div style="height:100px;width:100px;background-color:black;" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)"></div>
     <div class="container" style="text-align:center; width:100%;">
         <button class="btn btn-warning" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">FLY UP</button>
         <button class="btn btn-warning" onclick="reload();">Restart</button>
