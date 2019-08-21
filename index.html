@@ -218,7 +218,7 @@
         }
 
         function accelerate(n) {
-            if (!myGameArea.interval) { myGameArea.interval = setInterval(updateGameArea, 20); }
+            if (!myGameArea.interval) { myGameArea.interval = setInterval(updateGameArea, 10); }
 
             myGamePiece.gravity = n;
             eye.gravity = n;
@@ -234,7 +234,7 @@
     <br>
     <div style="height:100px;width:100px;background-color:black;" ontouchstart="accelerate(-0.2)" ontouchend="accelerate(0.05)"></div>
     <div class="container" style="text-align:center; width:100%;">
-        <button class="btn btn-warning" onmousedown="accelerate(-0.2)" onmouseup="accelerate(0.05)">FLY UP</button>
+        <button class="btn btn-warning" onmousedown="accelerate(-0.1)" onmouseup="accelerate(0.03)">FLY UP</button>
         <button class="btn btn-warning" onclick="reload();">Restart</button>
         <p>Click the FLY UP button to start the game</p>
         <p>How long can you stay alive? Use the FLY UP button to stay in the air..</p>
