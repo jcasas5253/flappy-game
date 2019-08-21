@@ -6,48 +6,63 @@
     <script src="https://code.jquery.com/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
             crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/fb844198fa.js"></script>
     <style>
-@keyframes color {
-    
-    0%   {background : rgba(128, 0, 128, 0.6);
-   }
-    10%   {background :  rgba(156, 39, 176, 0.5);
-   }
-  25%  {background: rgba(103, 58, 183, 0.72);
-}
-  50%  {background: rgba(0, 0, 255, 0.57);
-}
-  100% {background: rgba(128, 0, 128, 0.6);
-        
-    }
+        @keyframes color {
 
-}
- @-webkit-keyframes color {
-    
-    0%   {background : rgba(128, 0, 128, 0.6);
-   }
-    10%   {background :  rgba(156, 39, 176, 0.5);
-   }
-  25%  {background: rgba(103, 58, 183, 0.72);
-}
-  50%  {background: rgba(0, 0, 255, 0.57);
-}
-  100% {background: rgba(128, 0, 128, 0.6);
-        
-    }
-}
+            0% {
+                background: rgba(128, 0, 128, 0.6);
+            }
 
-.bg{
+            10% {
+                background: rgba(156, 39, 176, 0.5);
+            }
 
- -webkit-animation-name: color;
-    animation-name: color;
-    -webkit-animation-duration: 20s;
-    animation-duration: 20s;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
+            25% {
+                background: rgba(103, 58, 183, 0.72);
+            }
 
-}
-  
+            50% {
+                background: rgba(0, 0, 255, 0.57);
+            }
+
+            100% {
+                background: rgba(128, 0, 128, 0.6);
+            }
+        }
+
+        @-webkit-keyframes color {
+
+            0% {
+                background: rgba(128, 0, 128, 0.6);
+            }
+
+            10% {
+                background: rgba(156, 39, 176, 0.5);
+            }
+
+            25% {
+                background: rgba(103, 58, 183, 0.72);
+            }
+
+            50% {
+                background: rgba(0, 0, 255, 0.57);
+            }
+
+            100% {
+                background: rgba(128, 0, 128, 0.6);
+            }
+        }
+
+        .bg {
+            -webkit-animation-name: color;
+            animation-name: color;
+            -webkit-animation-duration: 20s;
+            animation-duration: 20s;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+        }
+
 
         canvas {
             border: 1px solid #d3d3d3;
@@ -67,11 +82,22 @@
 
         button {
             margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .second-btn {
+            display: none;
         }
 
         @media only screen and (max-width : 768px) {
-            canvas{
+            canvas {
                 width: 100%;
+            }
+            .fly-up {
+                display:none;
+            }
+            .second-btn {
+                display: block;
             }
         }
     </style>
@@ -232,9 +258,10 @@
         }
     </script>
     <br>
-    <div style="height:100px;width:100px;background-color:black;" ontouchstart="accelerate(-0.2)" ontouchend="accelerate(0.05)"></div>
-    <div class="container" style="text-align:center; width:100%;">
-        <button class="btn btn-warning" onmousedown="accelerate(-0.1)" onmouseup="accelerate(0.03)">FLY UP</button>
+  
+    <div class="container" style="text-align: -webkit-center; width:100%;">
+        <div class="second-btn" style="vertical-align:middle;text-align:center;height:50px;width:100px;background-color:black;" ontouchstart="accelerate(-0.2)" ontouchend="accelerate(0.05)"><i class="fas fa-arrow-up fa-3x" style="color:white;"></i></div>
+        <button class="btn btn-warning fly-up" onmousedown="accelerate(-0.1)" onmouseup="accelerate(0.03)">FLY UP</button>
         <button class="btn btn-warning" onclick="reload();">Restart</button>
         <p>Click the FLY UP button to start the game</p>
         <p>How long can you stay alive? Use the FLY UP button to stay in the air..</p>
