@@ -3,48 +3,65 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
     <style>
-@keyframes color {
-    
-    0%   {background : rgba(128, 0, 128, 0.6);
-   }
-    10%   {background :  rgba(156, 39, 176, 0.5);
-   }
-  25%  {background: rgba(103, 58, 183, 0.72);
-}
-  50%  {background: rgba(0, 0, 255, 0.57);
-}
-  100% {background: rgba(128, 0, 128, 0.6);
-        
-    }
+        @keyframes color {
 
-}
- @-webkit-keyframes color {
-    
-    0%   {background : rgba(128, 0, 128, 0.6);
-   }
-    10%   {background :  rgba(156, 39, 176, 0.5);
-   }
-  25%  {background: rgba(103, 58, 183, 0.72);
-}
-  50%  {background: rgba(0, 0, 255, 0.57);
-}
-  100% {background: rgba(128, 0, 128, 0.6);
-        
-    }
-}
+            0% {
+                background: rgba(128, 0, 128, 0.6);
+            }
 
-.bg{
+            10% {
+                background: rgba(156, 39, 176, 0.5);
+            }
 
- -webkit-animation-name: color;
-    animation-name: color;
-    -webkit-animation-duration: 20s;
-    animation-duration: 20s;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
+            25% {
+                background: rgba(103, 58, 183, 0.72);
+            }
 
-}
-  
+            50% {
+                background: rgba(0, 0, 255, 0.57);
+            }
+
+            100% {
+                background: rgba(128, 0, 128, 0.6);
+            }
+        }
+
+        @-webkit-keyframes color {
+
+            0% {
+                background: rgba(128, 0, 128, 0.6);
+            }
+
+            10% {
+                background: rgba(156, 39, 176, 0.5);
+            }
+
+            25% {
+                background: rgba(103, 58, 183, 0.72);
+            }
+
+            50% {
+                background: rgba(0, 0, 255, 0.57);
+            }
+
+            100% {
+                background: rgba(128, 0, 128, 0.6);
+            }
+        }
+
+        .bg {
+            -webkit-animation-name: color;
+            animation-name: color;
+            -webkit-animation-duration: 20s;
+            animation-duration: 20s;
+            -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+        }
+
 
         canvas {
             border: 1px solid #d3d3d3;
@@ -67,7 +84,7 @@
         }
 
         @media only screen and (max-width : 768px) {
-            canvas{
+            canvas {
                 width: 100%;
             }
         }
@@ -108,10 +125,6 @@
                 document.body.insertBefore(this.canvas, document.body.childNodes[0]);
                 this.frameNo = 0;
                 updateGameArea();
-                window.addEventListener('touchmove', function (e) {
-      myGameArea.x = e.touches[0].screenX;
-      myGameArea.y = e.touches[0].screenY;
-    })
             },
             clear: function () {
                 this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -181,11 +194,6 @@
                 }
             }
             myGameArea.clear();
-            if (myGameArea.x && myGameArea.y) {
-    myGamePiece.x = myGameArea.x;
-    myGamePiece.y = myGameArea.y; 
-            }
-            myGamePiece.update()
             myGameArea.frameNo += 1;
             if (myGameArea.frameNo == 1 || everyinterval(150)) {
                 x = myGameArea.canvas.width;
@@ -231,11 +239,16 @@
             eyeTwo.gravity = n;
             wing.gravity = n;
             beak.gravity = n;
-    }
+        }
 
-    function reload() {
-        location.reload();
-    }
+        function reload() {
+            location.reload();
+        }
+
+        $('.btn-warning').mousedown(function (e) {
+            e.preventDefault();
+            beginAdjust(10);
+        })
     </script>
     <br>
     <div class="container" style="text-align:center; width:100%;">
